@@ -7,8 +7,7 @@
       <meta name="description" content="">
       <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
       <meta name="generator" content="Jekyll v3.8.5">
-      <title>Bhavesh Shah</title>
-
+      <title> {{ blog_details.title }} </title>
 
       <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -43,44 +42,22 @@
       <div class="navbar-nav ml-auto">
         <a class="nav-item nav-link" href="https://github.com/bhavrish">Twitter</a>
         <a class="nav-item nav-link" href="#">Resume</a>
-        <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+        <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
       </div>
     </div>
   </nav>
   </header>
 
   <main role="main">
+    <div class="container">
 
-    <section class="jumbotron text-center">
-      <div class="container">
-        <h1 class="jumbotron-heading">Hi I'm Bhavesh.</h1>
-        <p class="lead text-muted">Hey, my name is Bhavesh Shah and I love to make Django Websites. Backend development is the best!</p>
-        <p>
-          <a href="mailto:bhavrish@gmail.com" class="btn btn-primary my-2">Email Me</a>
-        </p>
-        <img src="{% static 'bhavesh.jpg' %}" height=300/>
-      </div>
-    </section>
-
-    <div class="album py-5 bg-light">
-      <div class="container">
-        <div class="row">
-
-          {% for job in jobs.all %}
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <img class="class-img-top" src="{{ job.image.url }}" width="100%" height="225" />
-              <div class="card-body">
-                <p class="card-text">{{ job.summary }}</p>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-
-        </div>
-      </div>
+      <h1 class="text-center pt=3">{{ blog_details.title }}</h1>
+      <p class="text-center">{{ blog_details.pub_date}}</p>
+      <img class="img-fluid" src="{{ blog_details.image.url }}" height=500 width=1250>
+      <br/>
+      <p> {{ blog_details.body }} </p>
+      
     </div>
-
   </main>
 
   <footer class="text-muted">
