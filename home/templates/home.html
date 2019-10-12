@@ -7,7 +7,7 @@
       <meta name="description" content="">
       <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
       <meta name="generator" content="Jekyll v3.8.5">
-      <title>Bhavesh Shah</title>
+      <title>Macaulay Chamber</title>
 
 
       <!-- Bootstrap core CSS -->
@@ -29,21 +29,50 @@
             font-size: 3.5rem;
           }
         }
+
+        #social-wrapper {
+          text-align: center;
+        }
+
+        /*Social Media Icons*/
+        .social-wrapper {
+          text-align: center;
+        }
+
+        .social-wrapper ul li {
+          display: inline;
+          margin: 0 5px;
+        }
+
+        .facebook-icon,
+        .instagram-icon,
+        .youtube-icon{
+          margin-top: 1.625em;
+          width: 100px;
+          height: 100px;
+          border-radius: 25px;
+        }
+
+        .jumbotron-heading { 
+          font-size: 3.5em;
+          font-weight: bold;
+        }
+
       </style>
     
     </head>
     <body>
    <header>
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="{% url 'home' %}">Bhavesh Shah</a>
+    <a class="navbar-brand" href="{% url 'home' %}">Macaulay Chamber</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ml-auto">
-        <a class="nav-item nav-link" href="https://github.com/bhavrish">Twitter</a>
-        <a class="nav-item nav-link" href="#">Resume</a>
-        <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+        <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
+        <a class="nav-item nav-link" href="{% url 'gallery' %}">Gallery</a>
+        <a class="nav-item nav-link" href="{% url 'allblogs' %}">Updates</a>
       </div>
     </div>
   </nav>
@@ -53,41 +82,35 @@
 
     <section class="jumbotron text-center">
       <div class="container">
-        <h1 class="jumbotron-heading">Hi I'm Bhavesh.</h1>
-        <p class="lead text-muted">Hey, my name is Bhavesh Shah and I love to make Django Websites. Backend development is the best!</p>
-        <p>
-          <a href="mailto:bhavrish@gmail.com" class="btn btn-primary my-2">Email Me</a>
-        </p>
-        <img src="{% static 'bhavesh.jpg' %}" height=300/>
+        <h1 class="jumbotron-heading">Macaulay Chamber Music Society</h1>
+        <p class="lead text-muted">We are CUNY Macaulay's premier chamber music ensemble.</p>
+        <img src="{% static 'music.jpg' %}" height=300/>
+        <div class="social-wrapper">
+            <ul>
+              <li>
+                <a href="https://www.facebook.com/macaulaychambermusicsociety" target="_blank">
+                  <img src="http://www.iconarchive.com/download/i54037/danleech/simple/facebook.ico" alt="Facebook Logo" class="facebook-icon"></a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/macaulaymusic/" target="_blank">
+                  <img src="https://www.mchenryvillage.com/images/instagram-icon.png" alt="Instagram Logo" class="instagram-icon"></a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UC8GCR95mC0bwHuXwH-mD-BA" target="_blank">
+                  <img src="https://lh3.googleusercontent.com/j_RwVcM9d47aBDW5DS1VkdxUYCkDUCB6wZglv4x-9SmsxO0VaFs7Csh-FmKRCWz9r_Ef=w170" alt="Youtube Logo" class="youtube-icon"></a>
+              </li>
+            </ul>
+          </div>
+
       </div>
     </section>
 
-    <div class="album py-5 bg-light">
-      <div class="container">
-        <div class="row">
-
-          {% for job in jobs.all %}
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <img class="class-img-top" src="{{ job.image.url }}" width="100%" height="225" />
-              <div class="card-body">
-                <p class="card-text">{{ job.summary }}</p>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-
-        </div>
-      </div>
-    </div>
+    
 
   </main>
 
   <footer class="text-muted">
     <div class="container text-center">
-      <p class="float-right">
-        <a href="#">Back to top</a>
-      </p>
       <p>© Bhavesh Shah {% now "Y" %}</p>
     </div>
   </footer>

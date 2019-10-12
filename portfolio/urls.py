@@ -17,10 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static # static is for image, video, etc. files
-import jobs.views 
+import jobs.views
+import about.views
+import home.views  
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', jobs.views.home, name='home'),
+    path('gallery/', jobs.views.gallery, name='gallery'),
+    path('', home.views.home, name='home'),
+    path('about/', about.views.about, name='about'),
     path('blog/', include('blog.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # connects images in model to media path

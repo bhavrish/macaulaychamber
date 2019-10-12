@@ -1,4 +1,3 @@
-
   <!doctype html>
   <html lang="en">
     <head>
@@ -8,10 +7,12 @@
       <meta name="description" content="">
       <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
       <meta name="generator" content="Jekyll v3.8.5">
-      <title>Updates</title>
+      <title>Gallery</title>
+
 
       <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 
       <style>
         .bd-placeholder-img {
@@ -41,31 +42,34 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ml-auto">
         <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
-        <a class="nav-item nav-link" href="{% url 'gallery' %}">Gallery</a>
-        <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Updates</a>
+        <a class="nav-item nav-link active" href="{% url 'gallery' %}">Gallery</a>
+        <a class="nav-item nav-link" href="{% url 'allblogs' %}">Updates</a>
       </div>
     </div>
   </nav>
   </header>
 
   <main role="main">
-    <div class="container">
-      <br/>
-      <br/>
-      <h1 class="text-center pt=3">News and Updates</h1>
-      <br/>
-      <br/>
-      <h2>Latest Posts</h2>
-      <hr/>
-      {% for blog in blogs.all %}
-      <a href="{% url 'detail' blog.id %}"><h3>{{ blog.title }}</h3></a>
-      {{ blog.pub_date_pretty }}
-      <br/>
-      <img class="img-fluid" src="{{ blog.image.url }}" height=200 width=200>
-      <br/>
-      <p> {{ blog.summary }} </p>
-      {% endfor %}
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <h1 class="text-center pt=3">Gallery</h1>
+        <div class="row">
+
+          {% for job in jobs.all %}
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <img class="class-img-top" src="{{ job.image.url }}" width="100%" height="225" />
+              <div class="card-body">
+                <p class="card-text">{{ job.summary }}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+      </div>
     </div>
+
   </main>
 
   <footer class="text-muted">
