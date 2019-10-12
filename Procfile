@@ -1,2 +1,2 @@
-web: gunicorn macaulaychamber.wsgi
+web: gunicorn portfolio.wsgi
 
