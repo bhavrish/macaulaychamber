@@ -1,4 +1,4 @@
-# Macaulay Chamber Website
+# Macaulay Chamber
 
 https://macaulaychamber.herokuapp.com/
 
